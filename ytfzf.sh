@@ -114,7 +114,7 @@ main() {
     echo "Enter a search query or press Ctrl+C to exit"
 
     while true; do
-        read -e -p "> " query
+        read -r -e -p "> " query
         [ -z "$query" ] && continue
         youtube_search_simple "$query"
     done
