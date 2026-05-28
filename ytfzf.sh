@@ -26,7 +26,7 @@ set_resolution() {
     echo "7) 360p"
     echo "8) Audio only"
     
-    read -p "Choice (1-8): " choice
+    read -r -p "Choice (1-8): " choice
     
     case $choice in
         1) DEFAULT_RESOLUTION="best" ;;
@@ -106,7 +106,7 @@ show_formats() {
     echo "Available formats for this video:"
     yt-dlp --list-formats "$video_url" 2>/dev/null | grep -E "^[0-9]" | head -20
     echo ""
-    read -p "Enter format code (or press Enter for best): " format_code
+    read -r -p "Enter format code (or press Enter for best): " format_code
     
     if [ -n "$format_code" ]; then
         mpv --ytdl-format="$format_code" "$video_url"
@@ -192,7 +192,7 @@ youtube_search() {
         echo "  C     - Cancel"
         echo ""
         
-        read -p "Choose option (Enter/F/R/C): " play_option
+        read -r -p "Choose option (Enter/F/R/C): " play_option
         
         case "$play_option" in
             "F"|"f")
@@ -266,7 +266,7 @@ main() {
     echo "Type :help for commands, or enter a search query"
 
     while true; do
-        read -e -p "Search > " query
+        read -r -e -p "Search > " query
         
         # Check for special commands
         case "$query" in
